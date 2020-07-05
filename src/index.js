@@ -5,9 +5,15 @@ import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
-const store = createStore(rootReducer)
+const middleware = store => next => action => {
+  const result = next(action)
+  console.log(store.getState())
+  return result
+}
+
+const store = createStore(rootReducer, applyMiddleware(middleware))
 
 ReactDOM.render(
   <React.StrictMode>

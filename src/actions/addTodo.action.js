@@ -7,3 +7,14 @@ export const addTodo = text => {
       complete: false
    }
 }
+
+
+// export const addTodo = text => dispatch => {
+//    if (!text) return alert('wpisz zadanie')
+//    dispatch({
+//       type: "ADD_TODO",
+//       id: 1,
+//       name: text,
+//       complete: false
+//    })
+// }
