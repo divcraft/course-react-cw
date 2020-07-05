@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { ReactQueryConfigProvider } from 'react-query'
 import './App.css';
+import TilesSection from './components/TilesSection';
+import ToDoSection from './components/ToDoSection';
+import HooksSection from './components/HooksSection';
+import Modal from './components/Modal';
+import SuspenseSection from './components/SuspenseSection';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ReactQueryConfigProvider config={{ suspense: true }}>
+        <TilesSection />
+        <ToDoSection />
+        <HooksSection />
+        <Modal />
+        <SuspenseSection />
+      </ReactQueryConfigProvider>
+    </>
   );
 }
 
